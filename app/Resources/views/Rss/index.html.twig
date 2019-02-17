@@ -1,0 +1,16 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}RSS Feed{% endblock %}
+
+{% block content %}
+    <h1>RSS News</h1>
+    {% for item in feed %}
+        <div class="row mt-2">
+            <div class="col">
+                <a target="_blank" href="{{ item.link }}"><h4>{{ item.title }}</h4></a>
+                <p>{{ item.lastModified | date('H:i:s d.m.Y') }}</p>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
